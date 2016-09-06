@@ -1,6 +1,6 @@
-var dns = require('native-dns');
-var server = dns.createServer();
-var resolve = require('./resolve');
+const dns = require('native-dns');
+const server = dns.createServer();
+const resolve = require('./resolve');
 
 const hosts = {
   'vvv.dev': '192.168.0.122',
@@ -24,7 +24,6 @@ server.on('request', (request, response) => {
       resolve(e.name, (err, res) => {
         if (err) { console.trace(err); return; }
         if (!res || typeof (res.address) !== 'string' || res.address.length === 0) { return; }
-        console.log(res);
         response.answer.push(dns.A({
           name: e.name,
           address: res.address,

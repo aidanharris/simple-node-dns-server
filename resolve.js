@@ -1,4 +1,4 @@
-var dns = require('native-dns');
+const dns = require('native-dns');
 
 const DNS_SERVER = '192.168.0.1';
 
