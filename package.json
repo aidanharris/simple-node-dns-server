@@ -1,0 +1,23 @@
+{
+  "name": "simple-node-dns-server",
+  "version": "1.0.0",
+  "description": "I needed a simple to use DNS server that didn't require me to setup [BIND](https://en.wikipedia.org/wiki/BIND) just to test a website on my iPhone or iPad.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidanharris/simple-node-dns-server.git"
+  },
+  "author": "Aidan Harris",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/aidanharris/simple-node-dns-server/issues"
+  },
+  "homepage": "https://github.com/aidanharris/simple-node-dns-server#readme",
+  "dependencies": {
+    "native-dns": "^0.7.0"
+  }
+}
