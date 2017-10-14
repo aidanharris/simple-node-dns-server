@@ -64,6 +64,7 @@ server.on('error', (err, buff, req, res) => {
 });
 
 server.on('listening', () => {
+  process.setuid(Number(require('child_process').execSync('id -u nobody').toString()));
   const {address, port} = server.address();
   console.log(`Listening on ${address}:${port}`);
 });
