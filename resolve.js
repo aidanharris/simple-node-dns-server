@@ -1,18 +1,20 @@
+/* eslint new-cap: "off" */
+
 const dns = require('native-dns');
 
 const DNS_SERVER = '192.168.0.1';
 
 module.exports = (name, callback, end) => {
-  var question = dns.Question({
-    name: name,
+  const question = dns.Question({
+    name,
     type: 'A'
   });
 
-  var start = Date.now();
+  const start = Date.now();
 
-  var req = dns.Request({
-    question: question,
-    server: { address: DNS_SERVER, port: 53, type: 'udp' },
+  const req = dns.Request({
+    question,
+    server: {address: DNS_SERVER, port: 53, type: 'udp'},
     timeout: 1000
   });
 
@@ -22,14 +24,14 @@ module.exports = (name, callback, end) => {
   });
 
   req.on('message', (err, answer) => {
-    answer.answer.forEach((a) => {
+    answer.answer.forEach(a => {
       callback(err, a);
     });
   });
 
   req.on('end', () => {
     end();
-    var delta = (Date.now()) - start;
+    const delta = (Date.now()) - start;
     console.log('Finished processing request: ' + delta.toString() + 'ms');
   });
 
